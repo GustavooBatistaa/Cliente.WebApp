@@ -1,0 +1,37 @@
+﻿@model OcorrenciaViewModel
+
+@{
+    ViewData["Title"] = "Ocorrência Details";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ocorrência Details</h1>
+
+    <div>
+        <h4>Ocorrência</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Data Abertura</dt>
+            <dd class="col-sm-10">@Model.DataAbertura</dd>
+
+            <dt class="col-sm-2">Data Ocorrência</dt>
+            <dd class="col-sm-10">@Model.DataOcorrencia</dd>
+
+            <dt class="col-sm-2">Descrição</dt>
+            <dd class="col-sm-10">@Model.Descricao</dd>
+
+            <dt class="col-sm-2">Responsável Abertura</dt>
+            <dd class="col-sm-10">@Model.ResponsavelAberturaId</dd>
+
+            <dt class="col-sm-2">Responsável Ocorrência</dt>
+            <dd class="col-sm-10">@Model.ResponsavelOcorrenciaId</dd>
+
+            <dt class="col-sm-2">Conclusão</dt>
+            <dd class="col-sm-10">@Model.Conclusao</dd>
+        </dl>
+    </div>
+    <p>
+        <a asp-controller="Ocorrencias" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+        <a asp-controller="Ocorrencias" asp-action="Index" class="btn btn-primary">Back to List</a>
+    </p>
+</div>

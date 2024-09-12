@@ -1,0 +1,43 @@
+﻿@model IEnumerable<OcorrenciaViewModel>
+
+@{
+    ViewData["Title"] = "Ocorrências";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Ocorrências</h1>
+    <p>
+        <a asp-controller="Ocorrencias" asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().DataAbertura)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DataOcorrencia)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Descricao)</th>
+                <th>@Html.DisplayNameFor(model => model.First().ResponsavelAberturaId)</th>
+                <th>@Html.DisplayNameFor(model => model.First().ResponsavelOcorrenciaId)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Conclusao)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.DataAbertura)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataOcorrencia)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ResponsavelAberturaId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ResponsavelOcorrenciaId)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Conclusao)</td>
+                    <td>
+                        <a asp-controller="Ocorrencias" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                        <a asp-controller="Ocorrencias" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                        <a asp-controller="Ocorrencias" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
